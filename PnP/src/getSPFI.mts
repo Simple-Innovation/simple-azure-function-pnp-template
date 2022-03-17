@@ -14,8 +14,9 @@ type GetSPFIOption = {
 };
 
 export function getSPFI(option: GetSPFIOption): SPFI {
+  
   if (spCollection.length > 0) {
-    return spCollection[0];
+    //return spCollection[0];
   }
 
   const config: Configuration = {
@@ -31,7 +32,7 @@ export function getSPFI(option: GetSPFIOption): SPFI {
 
   const sp = spfi().using(
     SPDefault({
-      baseUrl: `https://${option.sharePointTenantName}.sharepoint.com/${option.sharePointServerRelativeUrl}`,
+      baseUrl: `https://${option.sharePointTenantName}.sharepoint.com${option.sharePointServerRelativeUrl}`,
       msal: {
         config: config,
         scopes: [

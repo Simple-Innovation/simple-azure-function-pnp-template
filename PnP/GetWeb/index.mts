@@ -8,6 +8,7 @@ const httpTrigger: AzureFunction = async function (
   context: Context,
   req: HttpRequest
 ): Promise<void> {
+  context.log(req.query.serverRelativeUrl);
   const credential = new EnvironmentCredential() as DefaultAzureCredential;
 
   const azureCertificatePrivateKey = await getCertificatePrivateKey(
@@ -21,13 +22,13 @@ const httpTrigger: AzureFunction = async function (
     process.env["AZURE_KEYVAULT_URL"],
     process.env["AZURE_KEYVAULT_CERTIFICATE_NAME"]
   );
-  
+
   const spfi = getSPFI({
     azureClientId: process.env["AZURE_CLIENT_ID"],
     azureTenantId: process.env["AZURE_TENANT_ID"],
     azureCertificatePrivateKey: azureCertificatePrivateKey,
     azureCertificateThumbprint: azureCertificateThumbprint,
-    sharePointServerRelativeUrl: process.env["SHAREPOINT_SERVER_RELATIVE_URL"],
+    sharePointServerRelativeUrl: req.query.serverRelativeUrl, // "/sites/honours",  //req.query.serverRelativeUrl,
     sharePointTenantName: process.env["SHAREPOINT_TENANT_NAME"],
   });
 
