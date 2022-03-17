@@ -31,8 +31,6 @@ Populate the [PnP/local.settings.json](PnP/local.settings.json) file with the fo
     "AzureWebJobsStorage": "",
     "AZURE_CLIENT_ID": "Azure AD App Registration Client Id",
     "AZURE_TENANT_ID": "Azure Tenant Id",
-    "AZURE_CERTIFICATE_THUMBPRINT": "",
-    "AZURE_CERTIFICATE_PRIVATEKEY": "",
     "SHAREPOINT_SERVER_RELATIVE_URL": "",
     "SHAREPOINT_TENANT_NAME": "SharePoint Tenant Name"
   }
