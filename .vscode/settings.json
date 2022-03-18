@@ -5,5 +5,14 @@
   "azureFunctions.projectRuntime": "~4",
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.preDeployTask": "npm prune (functions)",
-  "cSpell.words": ["KEYVAULT", "msal", "prebuild", "prestart", "SPFI"]
+  "cSpell.words": [
+    "dearmor",
+    "dotnetdev",
+    "KEYVAULT",
+    "msal",
+    "odata",
+    "prebuild",
+    "prestart",
+    "SPFI"
+  ]
 }
