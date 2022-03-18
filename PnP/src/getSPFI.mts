@@ -2,7 +2,8 @@ import { SPDefault } from "@pnp/nodejs";
 import { Configuration } from "@azure/msal-node";
 import { spfi, SPFI } from "@pnp/sp";
 
-const spCollection: SPFI[] = [];
+const spfiCollection: { sharePointServerRelativeUrl: string; spfi: SPFI }[] =
+  [];
 
 type GetSPFIOption = {
   azureClientId: string;
@@ -14,9 +15,8 @@ type GetSPFIOption = {
 };
 
 export function getSPFI(option: GetSPFIOption): SPFI {
-  
-  if (spCollection.length > 0) {
-    //return spCollection[0];
+  if (getSPFIItem(option.sharePointServerRelativeUrl)) {
+    return getSPFIItem(option.sharePointServerRelativeUrl).spfi;
   }
 
   const config: Configuration = {
@@ -42,7 +42,18 @@ export function getSPFI(option: GetSPFIOption): SPFI {
     })
   );
 
-  spCollection.push(sp);
+  spfiCollection.push({
+    sharePointServerRelativeUrl: option.sharePointServerRelativeUrl,
+    spfi: sp,
+  });
 
-  return sp;
+  return getSPFIItem(option.sharePointServerRelativeUrl).spfi;
 }
+
+function getSPFIItem(sharePointServerRelativeUrl: string) {
+  return spfiCollection.find(
+    (spfi) =>
+      spfi.sharePointServerRelativeUrl === sharePointServerRelativeUrl
+  );
+}
+
