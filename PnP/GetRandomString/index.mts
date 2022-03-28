@@ -1,5 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
-import { getRandomString } from "@pnp/core";
+import { getRandomString } from "@pnp/core/util.js"
 
 const httpTrigger: AzureFunction = async function (
   context: Context,

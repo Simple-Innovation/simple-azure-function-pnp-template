@@ -1,6 +1,6 @@
-import { SPDefault } from "@pnp/nodejs";
+import { SPDefault } from "@pnp/nodejs/index.js";
 import { Configuration } from "@azure/msal-node";
-import { spfi, SPFI } from "@pnp/sp";
+import { spfi, SPFI } from "@pnp/sp/fi.js";
 
 const spfiCollection: { sharePointServerRelativeUrl: string; spfi: SPFI }[] =
   [];

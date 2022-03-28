@@ -23,7 +23,7 @@ const httpTrigger: AzureFunction = async function (
       process.env["AZURE_KEYVAULT_URL"],
       process.env["AZURE_KEYVAULT_CERTIFICATE_NAME"]
     ),
-    sharePointServerRelativeUrl: req.query.serverRelativeUrl,
+    sharePointServerRelativeUrl: req.query.serverRelativeUrl || "/",
     sharePointTenantName: process.env["SHAREPOINT_TENANT_NAME"],
   });
 

@@ -11,6 +11,7 @@
     "KEYVAULT",
     "msal",
     "odata",
+    "pnpjs",
     "prebuild",
     "prestart",
     "SPFI"

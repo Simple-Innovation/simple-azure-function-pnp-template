@@ -1,4 +1,4 @@
-import { SPFI } from "@pnp/sp";
+import { SPFI } from "@pnp/sp/fi.js";
 import "@pnp/sp/webs/index.js";
 import "@pnp/sp/lists/index.js";
 
